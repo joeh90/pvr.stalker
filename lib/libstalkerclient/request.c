@@ -137,8 +137,8 @@ void sc_request_build_headers(sc_identity_t *identity, sc_request_t *request, sc
     char buffer[256];
 
     memset(&buffer, 0, sizeof(buffer));
-    sprintf(buffer, "mac=%s; stb_lang=%s; timezone=%s",
-            identity->mac, identity->lang, identity->time_zone);
+    sprintf(buffer, "mac=%s; stb_lang=%s; timezone=%s; sn=%s",
+            identity->mac, identity->lang, identity->time_zone, identity->serial_number);
     sc_request_append_nameVal(&request->headers, sc_request_create_nameVal("Cookie", buffer));
 
     if (action != STB_HANDSHAKE) {
